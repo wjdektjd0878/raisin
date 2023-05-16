@@ -1,6 +1,7 @@
 import random
 import importlib
 import sys
+from main_story import get_main_story
 sys.path.append("./Users/jungdasung/Desktop/unity/project/raisen_python/story")
 
 # 캐릭터의 이름과 배경 설명을 저장하는 클래스
@@ -28,8 +29,13 @@ def press_any_button(character):
 main_story_module = importlib.import_module('main_story')
 sub_story_modules = [importlib.import_module(f'sub_story{i}') for i in range(1, 5)]
 
-def get_story(module):
-    return module.get_sub_story()
+def get_story(module, character_name):
+    try:
+        story = module.get_sub_story().replace('{name}', character_name)
+    except Exception:
+        story = "스토리를 불러오는데 실패했습니다."
+    return story
+
 
 def roll_dice():
     return random.randint(1, 6)
@@ -47,25 +53,50 @@ def make_choice(choices):
     except AssertionError:
         print("실패했습니다.")
 
+# Define the story parts
+story_parts = {
+    'part1': {
+        'story': 'You are at a fork in the road.',
+        'choices': ['Go left', 'Go right', 'Go straight', 'Turn back']
+    },
+    'part2': {
+        'story': 'You encounter a mysterious stranger.',
+        'choices': ['Talk to the stranger', 'Ignore the stranger', 'Run away']
+    },
+    # Add more story parts and choices as needed...
+}
+
+def tell_story(part, character_name):
+    story = story_parts[part]['story'].replace('{name}', character_name)
+    print(story)
+    make_choice(story_parts[part]['choices'])
+
+# main function
 def main():
-    # 캐릭터 객체 생성
+    # Create character object
     character = Character()
 
-    # 배경 설명 함수 호출
+    # Call background description function
     describe_background(character)
 
-    # Press Any Button 함수 호출
+    # Call the Press Any Button function
     press_any_button(character)
-햣
-    print(get_story(main_story_module))
 
-    for i in range(random.randint(2, 4)):
-        print(get_story(sub_story_modules[i]))
+    # Proceed to each part of the story
+    for part in story_parts:
+        tell_story(part, character.name)
 
-        choices = [f"선택지 {i}" for i in range(1, random.randint(2, 5))]
-        make_choice(choices)
+        # Proceed to sub-stories
+        for i in range(random.randint(2, 4)):
+            sub_story = get_story(sub_story_modules[i], character.name)
+            print(sub_story)
 
-    print(get_story(main_story_module))
+            choices = [f"choice {i}" for i in range(1, random.randint(2, 5))]
+            make_choice(choices)
 
+    # Print the character's name at the end
+    print("Your character's name is " + character.name)
+
+# Execute main function
 if __name__ == "__main__":
     main()
