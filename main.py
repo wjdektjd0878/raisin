@@ -2,7 +2,7 @@ import importlib
 import random
 import sys
 from main_story import get_main_story
-from sub_story1 import get_sub_story
+from sub_stories import sub_story1
 
 
 # 캐릭터의 이름과 배경 설명을 저장하는 클래스
