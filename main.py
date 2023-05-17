@@ -13,7 +13,7 @@ class Character:
 
 # 배경 설명을 입력하고 출력하는 함수
 def describe_background(character):
-    with open('text_file/background', 'r', encoding='utf-8') as file:
+    with open('text_file/background.txt', 'r', encoding='utf-8') as file:
         character.background = file.read()
     print(character.background)
 
@@ -24,10 +24,19 @@ def press_any_button(character):
 
 # 선택지를 출력하고 사용자의 선택을 입력받는 함수
 def make_choice(choices):
-    for i, choice in enumerate(choices, start=1):
-        print(f"{i}. {choice}")
-    user_choice = int(input("번호를 선택하세요: "))
-    return user_choice
+    for i, option in enumerate(choices, start=1):
+        print(f"{i}. {option}")
+
+    choice = input("번호를 선택하세요: ")
+    while not choice.isdigit() or int(choice) not in range(1, len(choices)+1):
+        print("유효하지 않은 선택입니다. 다음 옵션 중 하나를 선택해주세요: ")
+        for i, option in enumerate(choices, start=1):
+            print(f"{i}. {option}")
+        choice = input("번호를 선택하세요: ")
+
+    return choices[int(choice)-1]
+
+
 
 # 메인 함수
 def main():
