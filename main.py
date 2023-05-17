@@ -37,7 +37,6 @@ def make_choice(choices):
     return choices[int(choice)-1]
 
 
-
 # 메인 함수
 def main():
     # 캐릭터 객체 생성
