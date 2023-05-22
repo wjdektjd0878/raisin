@@ -1,0 +1,3 @@
+root - INFO - Starting example_function
+root - DEBUG - This is a debug message
+root - INFO - Finished example_function
