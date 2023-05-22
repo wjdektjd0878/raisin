@@ -17,34 +17,26 @@ def get_main_story1(player):
     chapter1(player)
 
 
-
 # Chapter 1 스토리 시작
 def chapter1(player):
-    story_path = ''
+
+    point_list = [2,1,4]
+
     for i in range(1):
         choice = input('번호 선택 :  ')
         if choice not in ['3', '2', '1']:
             print('Invalid choice. Please enter 3, 2, or 1.')
             continue
         else:
-            if choice == '3' :
-                read_and_replace('./chapter1_main_stories/main1_choice_story.txt', player)
-                player.points = 3
-                print(player.points)
+            for ii in range(3):
+                if choice == ii:
+                    read_and_replace('./chapter1_main_stories/main{}_choice_story.txt'.format(ii), player)
+                    player.points = point_list[i]
+                    print(player.points)
 
-            elif choice == '2' :
-                read_and_replace('./chapter1_main_stories/main2_choice_story.txt', player)
-                player.points = 2
-                print(player.points)
-
-            else:
-                read_and_replace('./chapter1_main_stories/main3_choice_story.txt', player)
-                player.points = 3
-                print(player.points)
-
-    if player.points == 3:
+    if player.points == 2:
         chapter1_sub_1(player)
-    elif player.points == 2:
+    elif player.points == 1:
         chapter1_sub_2(player)
     else:
         chapter1_sub_3(player)
@@ -53,7 +45,7 @@ def chapter1(player):
 
 def chapter1_sub_1(player):
     # 스토리 폴더에 있는 모든 텍스트 파일을 나열합니다
-    available_stories = os.listdir('chapter1_sub_stories')
+    available_stories = os.listdir('chapter1_sub_stories1')
     
     for i in range(4):
         # 무작위로 스토리 파일을 선택하고 목록에서 제거합니다
@@ -62,7 +54,7 @@ def chapter1_sub_1(player):
         
         # 스토리를 읽고 출력합니다
 
-        read_and_replace(f'./chapter1_sub_stories/{story_file}', player)
+        read_and_replace(f'./chapter1_sub_stories1/{story_file}', player)
         
         choice = input('Choice (3, 2, or 1 points): ')
         if choice not in ['3', '2', '1']:
@@ -92,7 +84,7 @@ def chapter1_sub_1(player):
 
 def chapter1_sub_2(player):
     # 스토리 폴더에 있는 모든 텍스트 파일을 나열합니다
-    available_stories = os.listdir('chapter1_sub_stories')
+    available_stories = os.listdir('chapter1_sub_stories2')
     
     for i in range(4):
         # 무작위로 스토리 파일을 선택하고 목록에서 제거합니다
@@ -101,7 +93,7 @@ def chapter1_sub_2(player):
         
         # 스토리를 읽고 출력합니다
 
-        read_and_replace(f'./chapter1_sub_stories/{story_file}', player)
+        read_and_replace(f'./chapter1_sub_stories2/{story_file}', player)
         
         choice = input('Choice (3, 2, or 1 points): ')
         if choice not in ['3', '2', '1']:
@@ -131,7 +123,7 @@ def chapter1_sub_2(player):
 
 def chapter1_sub_3(player):
     # 스토리 폴더에 있는 모든 텍스트 파일을 나열합니다
-    available_stories = os.listdir('chapter1_sub_stories')
+    available_stories = os.listdir('chapter1_sub_stories3')
     
     for i in range(4):
         # 무작위로 스토리 파일을 선택하고 목록에서 제거합니다
@@ -140,7 +132,7 @@ def chapter1_sub_3(player):
         
         # 스토리를 읽고 출력합니다
 
-        read_and_replace(f'./chapter1_sub_stories/{story_file}', player)
+        read_and_replace(f'./chapter1_sub_stories3/{story_file}', player)
         
         choice = input('Choice (3, 2, or 1 points): ')
         if choice not in ['3', '2', '1']:
