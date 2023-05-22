@@ -28,7 +28,6 @@ class Character:
 def main():
     name = input('플레이어의 이름을 입력하세요: ')
     player = Character(name)
-    print(story.get_main_story1(name))
     story.progress_story(player)
 
 if __name__ == "__main__":
