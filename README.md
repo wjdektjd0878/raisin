@@ -16,7 +16,7 @@
 - 배경 설정: 핵전쟁 이후
 - 시나리오 개요:
     
-    [시나리오_Demo_Chapter1](https://www.notion.so/_Demo_Chapter1-ee8e29098ff34ec5a0585ce2af3469c6)
+    [시나리오_Demo_Chapter1](https://curly-server-9a7.notion.site/_Demo_Chapter1-ee8e29098ff34ec5a0585ce2af3469c6)
     
 
 #### 3. UI/UX
