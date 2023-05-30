@@ -1,20 +1,24 @@
 # Raisin
 
  사용중인 Notion : [Engineer Notion](https://curly-server-9a7.notion.site/Engineer-c565f504965e42dc931210acf32ddbd2)
-## IaC
+***
+
+
+## Notion 리스트
+### IaC
 💡 인프라를 코드로 관리 하는 법
 - CloudFormation
 
-## Container
+### Container
 💡 Docker, Container 오케스트레이션
 - K8S 이해
 
-## Devolper
+### Devolper
 💡 개발자들 이해하기
 - JavaScript
 - Pyhon
 
-## Infra (Cloud)
+### Infra (Cloud)
 💡 클라우드 이용 시 비용적인 부분 및 배포/통합
 - 경험했던 여러 이슈들
 
