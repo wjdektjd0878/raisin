@@ -19,12 +19,12 @@ def example_function(param):
 # Somewhere else in your code...
 example_function("test parameter")
 
-# Player의 Character 생성
+#Player의 Character 생성 및 스토리 진행
 class Character:
     def __init__(self, name):
         self.name = name
         self.points = 0
-
+ 
 def main():
     name = input('플레이어의 이름을 입력하세요: ')
     player = Character(name)
@@ -32,4 +32,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
