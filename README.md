@@ -2,7 +2,7 @@
 
  사용중인 Notion : [Engineer Notion](https://curly-server-9a7.notion.site/Engineer-c565f504965e42dc931210acf32ddbd2)
 ***
-
+v0.0.4
 
 ## Notion 리스트
 ### IaC
